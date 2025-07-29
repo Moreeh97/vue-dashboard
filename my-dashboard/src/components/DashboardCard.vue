@@ -48,6 +48,6 @@
        </section>
      </main>
 
- </div>
+ 
 
 </template>
