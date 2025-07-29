@@ -14,7 +14,6 @@ const app = createApp(App)
 
 app.component('Navbar' , Navbar)
 app.component('Sidebar' , Sidebar)
-app.component('DashboardCard' , DashboardCard)
 app.component('Footer' , Footer)
 
 app.mount('#app')

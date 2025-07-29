@@ -3,10 +3,7 @@
 </script>
 
 <template>
-  <Navbar></Navbar>
   <Sidebar></Sidebar> 
-  <DashboardCard></DashboardCard>
-  <Footer></Footer>
 </template>
 
 
