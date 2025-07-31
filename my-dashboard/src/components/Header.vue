@@ -1,5 +1,5 @@
 <template>
-      <header class="flex items-center justify-between bg-white text-black p-4 rounded shadow pl-20">
+      <header class="flex items-center justify-between bg-white text-black p-4 rounded shadow pl-20 dark:bg-gray-500">
     
     <div class="flex items-center space-x-10 ">
       <input
@@ -65,11 +65,14 @@
         </div>
       </div>
     </div>
+
+<DarckMode></DarckMode>
   </header>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import DarckMode from './DarckMode.vue'
 
 const searchQuery = ref('')
 
