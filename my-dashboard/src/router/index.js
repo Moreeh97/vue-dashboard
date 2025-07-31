@@ -7,8 +7,10 @@ import EmployeeProfile from '@/views/EmployeeProfile.vue'
 import DashboardCard from '@/components/DashboardCard.vue'
 
 
+
 const routes = [
-  { path: '/', name: 'DashboardCard', component: DashboardCard },
+  
+  { path: '/home', name: 'DashboardCard', component: DashboardCard },
   { path: '/add-employee', name: 'AddEmployee', component: AddEmployee },
   { path: '/employees', name: 'Employees', component: Employees },
   { path: '/employee-profile', name: 'EmployeeProfile', component: EmployeeProfile },
