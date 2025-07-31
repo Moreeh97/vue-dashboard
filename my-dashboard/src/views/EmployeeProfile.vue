@@ -7,7 +7,7 @@
       <input v-model="searchName" type="text" placeholder="full name"
         class="border border-gray-300 rounded px-3 py-2 w-full" />
       <button @click="searchEmployee"
-        class="mt-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">show profile</button>
+        class="mt-2 bg-orange-400 hover:bg-orange-500 text-white px-4 py-2 rounded">show profile</button>
     </div>
 
     <div v-if="employee" class="bg-white shadow rounded p-4 mt-4">
@@ -20,7 +20,7 @@
     </div>
 
     <div v-else-if="searched">
-      <p class="text-red-500 mt-4">Not Founded.</p>
+      <p class="text-orange-400 mt-4">Not Founded.</p>
     </div>
   </div>
 </template>

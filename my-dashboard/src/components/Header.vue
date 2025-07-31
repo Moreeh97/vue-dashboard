@@ -1,5 +1,5 @@
 <template>
-      <header class="flex items-center justify-between bg-white text-white p-4 rounded shadow pl-20">
+      <header class="flex items-center justify-between bg-white text-black p-4 rounded shadow pl-20">
     
     <div class="flex items-center space-x-10 ">
       <input
@@ -84,19 +84,19 @@ function clearNotifications() {
 }
 
 // User Profile
-const userName = ref('محمد علي')
+const userName = ref('Moreeh ')
 const profileMenuOpen = ref(false)
 function toggleProfileMenu() {
   profileMenuOpen.value = !profileMenuOpen.value
 }
 
 // Current Time (تحديث كل ثانية)
-const currentTime = ref(new Date().toLocaleTimeString('ar-EG', { hour12: false }))
+const currentTime = ref(new Date().toLocaleTimeString('En-ye', { hour12: false }))
 
 let timer = null
 onMounted(() => {
   timer = setInterval(() => {
-    currentTime.value = new Date().toLocaleTimeString('ar-EG', { hour12: false })
+    currentTime.value = new Date().toLocaleTimeString('en-ye', { hour12: false })
   }, 1000)
 })
 onUnmounted(() => {

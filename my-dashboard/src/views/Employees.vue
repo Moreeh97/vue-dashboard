@@ -28,7 +28,7 @@
                     <td class="p-3 border">
             <router-link
               :to="`/employees/${index}`"
-              class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded"
+              class="bg-orange-400 hover:bg-orange-500 text-white px-3 py-1 rounded"
             >
                show profile
             </router-link>
