@@ -1,5 +1,5 @@
 <template>
-      <header class="flex items-center justify-between bg-white text-black p-4 rounded shadow pl-20 dark:bg-gray-500">
+      <header class="flex items-center justify-between bg-white text-black p-4 rounded shadow pl-20 dark:bg-gray-900 dark:text-white">
     
     <div class="flex items-center space-x-10 ">
       <input
@@ -66,7 +66,7 @@
       </div>
     </div>
 
-<DarckMode></DarckMode>
+
   </header>
 </template>
 
@@ -105,5 +105,7 @@ onMounted(() => {
 onUnmounted(() => {
   clearInterval(timer)
 })
+
+
 </script>
 

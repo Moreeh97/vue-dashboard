@@ -1,4 +1,5 @@
 <template>
+
   <div class="flex min-h-screen">
     <aside class="w-64 bg-white shadow-sm">
       <Sidebar/>
@@ -7,7 +8,7 @@
     <div class="flex flex-col flex-1">
       <Header/>
 
-      <main class="flex-1 p-4 bg-gray-100">
+      <main class="flex-1 p-4 bg-gray-100 overflow-auto">
         <router-view />
       </main>
 

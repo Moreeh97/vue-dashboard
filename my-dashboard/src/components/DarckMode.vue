@@ -1,40 +1,30 @@
 <template>
-    <div>
-       <button @click="toggleDarkMode" class="p-2 rounded-full border border-gray-400 dark:border-white">
-          <span v-if="isDark">🌙</span>
-          <span v-else>☀️</span>
-        </button> 
-    </div>
+    <div class="min-h-screen flex items-center justify-center">
+    <button id="toggleDark" class="px-6 py-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded shadow">
+      mode change
+    </button>
+  </div>
 </template>
 
 <script setup>
+ const toggleBtn = document.getElementById('toggleDark');
+    const html = document.documentElement;
 
-  import { ref, onMounted } from 'vue';
+    toggleBtn.addEventListener('click', () => {
+      html.classList.toggle('dark');
 
-  const isDark = ref(false)
+    
+      if (html.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    });
 
-  onMounted(()=>{
-    const savedMode = localStorage.getItem('theme')
-    if(savedMode==='dark'){
-        isDark.value = true
-        document.documentElement.classList.add('dark')
-    }
-    else{
-        isDark.value = false
-        document.documentElement.classList.remove('dark')
-    }
-  })
-
-  function toggleDarkMode() {
-  isDark.value = !isDark.value
-
-  if (isDark.value) {
-    document.documentElement.classList.add('dark')
-    localStorage.setItem('theme', 'dark')
-  } else {
-    document.documentElement.classList.remove('dark')
-    localStorage.setItem('theme', 'light')
-  }
-}
-
+  
+    window.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('theme') === 'dark') {
+        html.classList.add('dark');
+      }
+    });
 </script>

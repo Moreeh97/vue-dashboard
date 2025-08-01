@@ -5,6 +5,7 @@ import AddEmployee from '@/views/AddEmployee.vue'
 import Employees from '@/views/Employees.vue'
 import EmployeeProfile from '@/views/EmployeeProfile.vue'
 import DashboardCard from '@/components/DashboardCard.vue'
+import salarySummary from '@/views/SalarySummary.vue'
 
 
 
@@ -14,6 +15,7 @@ const routes = [
   { path: '/add-employee', name: 'AddEmployee', component: AddEmployee },
   { path: '/employees', name: 'Employees', component: Employees },
   { path: '/employee-profile', name: 'EmployeeProfile', component: EmployeeProfile },
+  { path: '/salary-summary', name: 'salarySummary', component: salarySummary },
 ]
 
 
