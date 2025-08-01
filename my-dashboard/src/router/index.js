@@ -7,6 +7,7 @@ import EmployeeProfile from '@/views/EmployeeProfile.vue'
 import DashboardCard from '@/components/DashboardCard.vue'
 import salarySummary from '@/views/SalarySummary.vue'
 import DeleteEmployee from '@/views/DeleteEmployee.vue'
+import Recovery from '@/views/Recovery.vue'
 
 
 
@@ -18,6 +19,7 @@ const routes = [
   { path: '/employees', name: 'Employees', component: Employees },
   { path: '/employee-profile', name: 'EmployeeProfile', component: EmployeeProfile },
   { path: '/salary-summary', name: 'salarySummary', component: salarySummary },
+  { path: '/recover-employees', name: 'Recovery', component: Recovery },
 ]
 
 
