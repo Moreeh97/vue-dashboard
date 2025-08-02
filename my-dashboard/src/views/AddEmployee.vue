@@ -51,11 +51,16 @@
         <label class="block mb-1">Date</label>
         <input v-model.date="employee.date" type="datetime-local" class="w-full border border-gray-300 rounded px-3 py-2" required />
       </div>
-
+      
       <div>
         <label class="block mb-1">upload contruct</label>
         <input v-on="employee.contract" type="file" class="w-full border border-gray-300 rounded px-3 py-2" />
-      </div><br></br>
+      </div>
+
+      <div>
+        <label class="block mb-1">Note</label>
+        <input v-model.date="employee.note" type="text" class="w-full border border-gray-300 rounded px-3 py-2" required />
+      </div><br></br> 
 
       <div class="col-span-2">
         <button type="submit" class="bg-orange-400 hover:bg-orange-500 text-white py-2 px-4 rounded">
@@ -81,7 +86,8 @@ const employee = ref({
   baseSalary: 0,
   bonus: 0,
   deductions: 0 ,
-  date: ''
+  date: '',
+  note: '',
 })
 
 const addEmployee = () => {
