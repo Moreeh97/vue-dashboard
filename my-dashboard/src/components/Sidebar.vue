@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen">
-    <aside class="bg-white shadow-sm fixed top-0 left-0 h-screen">
+    <aside class="bg-white shadow-sm fixed top-0 left-0 h-screen dark:bg-gray-900 dark:text-white">
       <ul class="space-y-2 p-10">
         <h2>Employees management</h2>
         

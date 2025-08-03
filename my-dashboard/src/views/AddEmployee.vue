@@ -54,7 +54,7 @@
       
       <div>
         <label class="block mb-1">upload contruct</label>
-        <input v-on="employee.contract" type="file" class="w-full border border-gray-300 rounded px-3 py-2" />
+        <input @click="employee.contract" type="file" class="w-full border border-gray-300 rounded px-3 py-2" />
       </div>
 
       <div>
@@ -88,6 +88,7 @@ const employee = ref({
   deductions: 0 ,
   date: '',
   note: '',
+  contract: ''
 })
 
 const addEmployee = () => {

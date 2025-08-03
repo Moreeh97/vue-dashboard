@@ -1,7 +1,6 @@
 <template>
-      <header class="flex items-center justify-between bg-white text-black p-4 rounded shadow pl-20 dark:bg-gray-900 dark:text-white">
-    
-    <div class="flex items-center space-x-10 ">
+  <header class="flex items-center justify-between bg-white text-black p-4 rounded shadow pl-20 dark:bg-gray-900 dark:text-white">
+    <div class="flex items-center space-x-10">
       <input
         v-model="searchQuery"
         type="text"
@@ -13,9 +12,8 @@
       </button>
     </div>
 
-    <!-- User Profile + Notifications + Time -->
-    <div class="flex items-center space-x-6">
-
+    <!-- User Profile + Notifications + Time + Dark Mode -->
+    <div class="flex items-center space-x-6 relative">
       <!-- Notifications -->
       <div class="relative cursor-pointer" @click="clearNotifications">
         <svg
@@ -40,10 +38,15 @@
         </span>
       </div>
 
-      <!-- Time -->
+      <!-- Current Time -->
       <div class="font-mono text-sm min-w-[90px] text-center">
         {{ currentTime }}
       </div>
+
+      <!-- زر الوضع الداكن -->
+      <button @click="toggleDarkMode" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-black dark:text-white">
+        {{ isDarkMode ? '☀️' : '🌙' }}
+      </button>
 
       <!-- User Profile -->
       <div class="flex items-center space-x-2 cursor-pointer" @click="toggleProfileMenu">
@@ -54,58 +57,64 @@
         />
         <span>{{ userName }}</span>
 
-        <!-- Dropdown menu -->
+        <!-- Dropdown -->
         <div
           v-if="profileMenuOpen"
-          class="absolute right-4 mt-12 bg-white text-white rounded shadow-lg py-2 w-40"
+          class="absolute right-0 top-14 bg-white dark:bg-gray-800 text-orange-400 rounded shadow-lg py-2 w-40"
         >
-          <a href="#" class="block px-4 py-1 hover:bg-orange-400 text-orange-400">profile</a>
-          <a href="#" class="block px-4 py-1 hover:bg-orange-400 text-orange-400">setting</a>
-          <a href="#" class="block px-4 py-1 hover:bg-orange-400 text-orange-400">Log out</a>
+          <a href="#" class="block px-4 py-1 hover:bg-orange-400 hover:text-white">profile</a>
+          <a href="#" class="block px-4 py-1 hover:bg-orange-400 hover:text-white">setting</a>
+          <a href="#" class="block px-4 py-1 hover:bg-orange-400 hover:text-white">Log out</a>
         </div>
       </div>
     </div>
-
-
   </header>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import DarckMode from './DarckMode.vue'
 
 const searchQuery = ref('')
+const doSearch = () => alert('Search about: ' + searchQuery.value)
 
-function doSearch() {
-  alert(' Search about : ' + searchQuery.value)
-}
-
-// Notifications count
 const notifications = ref(3)
-function clearNotifications() {
-  notifications.value = 0
-}
+const clearNotifications = () => (notifications.value = 0)
 
-// User Profile
-const userName = ref('Moreeh ')
+const userName = ref('Moreeh')
 const profileMenuOpen = ref(false)
-function toggleProfileMenu() {
-  profileMenuOpen.value = !profileMenuOpen.value
-}
+const toggleProfileMenu = () => (profileMenuOpen.value = !profileMenuOpen.value)
 
-// Current Time (تحديث كل ثانية)
-const currentTime = ref(new Date().toLocaleTimeString('En-ye', { hour12: false }))
-
+const currentTime = ref(new Date().toLocaleTimeString('en-ye', { hour12: false }))
 let timer = null
 onMounted(() => {
   timer = setInterval(() => {
     currentTime.value = new Date().toLocaleTimeString('en-ye', { hour12: false })
   }, 1000)
 })
+
+// الوضع الداكن
+const isDarkMode = ref(false)
+
+const toggleDarkMode = () => {
+  isDarkMode.value = !isDarkMode.value
+  const html = document.documentElement
+  if (isDarkMode.value) {
+    html.classList.add('dark')
+    localStorage.setItem('theme', 'dark')
+  } else {
+    html.classList.remove('dark')
+    localStorage.setItem('theme', 'light')
+  }
+}
+
+onMounted(() => {
+  if (localStorage.getItem('theme') === 'dark') {
+    isDarkMode.value = true
+    document.documentElement.classList.add('dark')
+  }
+})
+
 onUnmounted(() => {
   clearInterval(timer)
 })
-
-
 </script>
-

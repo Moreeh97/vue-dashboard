@@ -92,6 +92,11 @@
           <input v-model.number="selectedEmployee.note" class="w-full border px-3 py-2 rounded" type="number">
         </div>
 
+        <div>
+          <label class="block mb-1">Contruct:</label>
+          <input v-model.number="selectedEmployee.contract" class="w-full border px-3 py-2 rounded" type="number">
+        </div>
+
         <div class="mt-4 flex justify-between">
           <button @click="updateEmployee" class="bg-orange-400 hover:bg-orange-500 text-white px-4 py-2 rounded">
             Update

@@ -1,5 +1,5 @@
 <template>
-  <div class="p-6">
+  <div class="p-6 dark:bg-gray-700 dark:text-white">
     <h1 class="text-2xl font-bold mb-4">puplic summary </h1>
 
     <!-- madals botuns -->
