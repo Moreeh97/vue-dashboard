@@ -1,24 +1,24 @@
 <template>
-  <div class="p-6 dark:bg-gray-700 dark:text-white">
-    <h1 class="text-2xl font-bold mb-4">puplic summary </h1>
+  <div class="p-4 sm:p-6 dark:bg-gray-700 dark:text-white">
+    <h1 class="text-xl sm:text-2xl font-bold mb-4 text-center sm:text-left">puplic summary </h1>
 
     <!-- madals botuns -->
-    <div class="space-x-4 mb-6">
+    <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 mb-6">
       <button @click="showAddModal = true" class="bg-green-500 text-white px-4 py-2 rounded"> Add employee</button>
       <button @click="showDeletedModal = true" class="bg-red-500 text-white px-4 py-2 rounded"> Trash </button>
     </div>
 
     <!-- summary cards  -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-      <div class="bg-white p-4 rounded shadow"> total employee : {{ employees.length }}</div>
-      <div class="bg-white p-4 rounded shadow">max salary : {{ maxSalary }}</div>
-      <div class="bg-white p-4 rounded shadow">min salary : {{ minSalary }}</div>
-      <div class="bg-white p-4 rounded shadow">total salaries : {{ totalSalary }}</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-white p-4 rounded shadow text-center"> total employee : {{ employees.length }}</div>
+      <div class="bg-white p-4 rounded shadow text-center">max salary : {{ maxSalary }}</div>
+      <div class="bg-white p-4 rounded shadow text-center">min salary : {{ minSalary }}</div>
+      <div class="bg-white p-4 rounded shadow text-center">total salaries : {{ totalSalary }}</div>
     </div>
 
     <!-- employees table -->
-    <div class="mt-8">
-      <table class="w-full table-auto border">
+    <div class="mt-8 overflow-x-auto">
+      <table class="w-full min-w-[600px] table-auto border">
         <thead>
           <tr class="bg-gray-200 text-left">
             <th class="p-2">name</th>

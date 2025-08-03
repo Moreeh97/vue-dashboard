@@ -1,5 +1,5 @@
 <template>
-  <div class="p-6">
+  <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 mb-6">
     <h2 class="text-2xl font-bold mb-4">employees mnue</h2>
 
    

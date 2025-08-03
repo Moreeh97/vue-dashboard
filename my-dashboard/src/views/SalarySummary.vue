@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-2 gap-4 p-4">
+  <div class="grid grid-cols-2 sm:p-6 gap-4 p-4">
     <div class="bg-white rounded-xl shadow p-4">
       <h3 class="text-lg font-semibold">Number of Employees</h3>
       <p>{{ employees.length }}</p>

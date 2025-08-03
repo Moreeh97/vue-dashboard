@@ -2,7 +2,7 @@
   <div class="p-6">
     <h2 class="text-2xl font-bold mb-4">Add new employee</h2>
     
-    <form @submit.prevent="addEmployee" class="grid grid-cols-3 gap-4">
+    <form @submit.prevent="addEmployee" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       <div>
         <label class="block mb-1">Full name</label>
         <input v-model="employee.name" type="text" class="w-full border border-gray-300 rounded px-3 py-2" required />

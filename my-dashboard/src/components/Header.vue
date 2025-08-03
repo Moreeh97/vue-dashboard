@@ -1,21 +1,21 @@
 <template>
-  <header class="flex items-center justify-between bg-white text-black p-4 rounded shadow pl-20 dark:bg-gray-900 dark:text-white">
-    <div class="flex items-center space-x-10">
+  <header class="flex flex-col md:flex-row md:items-center md:justify-between bg-white text-black p-4 rounded shadow dark:bg-gray-900 dark:text-white space-y-4 md:space-y-0">
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center sm:space-x-4 space-y-2 sm:space-y-0">
       <input
         v-model="searchQuery"
         type="text"
         placeholder="Search..."
-        class="px-3 py-1 rounded text-gray-900 border"
+        class="px-3 py-2 rounded text-gray-900 border w-full sm:w-auto"
       />
-      <button @click="doSearch" class="bg-orange-400 px-3 py-1 rounded hover:bg-orange-400">
+      <button @click="doSearch" class="bg-orange-400 px-4 py-2 rounded hover:bg-orange-500 text-white w-full sm:w-auto">
         Search
       </button>
     </div>
 
     <!-- User Profile + Notifications + Time + Dark Mode -->
-    <div class="flex items-center space-x-6 relative">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-6 space-y-4 sm:space-y-0 relative">
       <!-- Notifications -->
-      <div class="relative cursor-pointer" @click="clearNotifications">
+      <div class="relative cursor-pointer flex justify-center" @click="clearNotifications">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6 text-orange-400"
@@ -32,19 +32,19 @@
         </svg>
         <span
           v-if="notifications > 0"
-          class="absolute -top-1 -right-1 bg-orange-400 text-xs rounded-full px-1"
+          class="absolute -top-1 -right-1 bg-orange-400 text-xs rounded-full px-1 text-white"
         >
           {{ notifications }}
         </span>
       </div>
 
       <!-- Current Time -->
-      <div class="font-mono text-sm min-w-[90px] text-center">
+      <div class="font-mono text-sm text-center">
         {{ currentTime }}
       </div>
 
       <!-- زر الوضع الداكن -->
-      <button @click="toggleDarkMode" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-black dark:text-white">
+      <button @click="toggleDarkMode" class="px-3 py-2 rounded bg-gray-200 dark:bg-gray-700 text-black dark:text-white">
         {{ isDarkMode ? '☀️' : '🌙' }}
       </button>
 
