@@ -1,19 +1,19 @@
 <template>
-  <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 mb-6">
-    <h2 class="text-2xl font-bold mb-4">employees mnue</h2>
+  <div class="p-6">
+    <h2 class="text-2xl font-bold mb-6">Employees Menu</h2>
 
-   
-    <div v-if="!viewingDetails">
-      <table class="min-w-full table-auto border border-gray-300">
+    <!-- Employee List -->
+    <div v-if="!viewingDetails" class="overflow-x-auto">
+      <table class="min-w-full border border-gray-300 rounded-lg overflow-hidden">
         <thead class="bg-gray-100">
           <tr>
-            <th class="border px-4 py-2">id</th>
+            <th class="border px-4 py-2">ID</th>
             <th class="border px-4 py-2">Name</th>
-            <th class="border px-4 py-2">department</th>
-            <th class="border px-4 py-2">Base salary</th>
-            <th class="border px-4 py-2">bonus</th>
-            <th class="border px-4 py-2">deductions</th>
-            <th class="border px-4 py-2">Final salary</th>
+            <th class="border px-4 py-2">Department</th>
+            <th class="border px-4 py-2">Base Salary</th>
+            <th class="border px-4 py-2">Bonus</th>
+            <th class="border px-4 py-2">Deductions</th>
+            <th class="border px-4 py-2">Final Salary</th>
             <th class="border px-4 py-2">Actions</th>
           </tr>
         </thead>
@@ -25,12 +25,15 @@
             <td class="border px-4 py-2">{{ emp.baseSalary }}</td>
             <td class="border px-4 py-2">{{ emp.bonus }}</td>
             <td class="border px-4 py-2">{{ emp.deductions }}</td>
-            <td class="border px-4 py-2">
+            <td class="border px-4 py-2 font-medium text-green-600">
               {{ emp.baseSalary + emp.bonus - emp.deductions }}
             </td>
-            <td class="p-3 border">
-              <button @click="showDetails(emp, index)" class="bg-orange-400 hover:bg-orange-500 text-white px-3 py-1 rounded">
-                view details
+            <td class="border px-4 py-2 text-center">
+              <button 
+                @click="showDetails(emp, index)" 
+                class="bg-orange-400 hover:bg-orange-500 text-white px-3 py-1 rounded"
+              >
+                View Details
               </button>
             </td>
           </tr>
@@ -42,73 +45,75 @@
       </div>
     </div>
 
-   
-    <div v-if="viewingDetails" class="max-w-xl mx-auto bg-white rounded-lg shadow-md p-6">
-      <h3 class="text-xl font-semibold mb-4"> Employee Details</h3>
+    <!-- Employee Details -->
+    <div v-else class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
+      <h3 class="text-xl font-semibold mb-6">Employee Details</h3>
 
-      <div class="space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label class="block mb-1">Name:</label>
-          <input v-model="selectedEmployee.name" class="w-full border px-3 py-2 rounded" type="text">
+          <input v-model="selectedEmployee.name" type="text" class="w-full border px-3 py-2 rounded" />
         </div>
 
         <div>
           <label class="block mb-1">Email:</label>
-          <input v-model="selectedEmployee.email" class="w-full border px-3 py-2 rounded" type="text">
+          <input v-model="selectedEmployee.email" type="email" class="w-full border px-3 py-2 rounded" />
         </div>
 
         <div>
           <label class="block mb-1">Phone Number:</label>
-          <input v-model="selectedEmployee.phoneNumber" class="w-full border px-3 py-2 rounded" type="text">
+          <input v-model="selectedEmployee.phoneNumber" type="text" class="w-full border px-3 py-2 rounded" />
         </div>
 
         <div>
           <label class="block mb-1">Education:</label>
-          <input v-model="selectedEmployee.education" class="w-full border px-3 py-2 rounded" type="text">
+          <input v-model="selectedEmployee.education" type="text" class="w-full border px-3 py-2 rounded" />
         </div>
 
         <div>
           <label class="block mb-1">Department:</label>
-          <input v-model="selectedEmployee.department" class="w-full border px-3 py-2 rounded" type="text">
+          <input v-model="selectedEmployee.department" type="text" class="w-full border px-3 py-2 rounded" />
         </div>
 
         <div>
-          <label class="block mb-1"> Basic salary:</label>
-          <input v-model.number="selectedEmployee.baseSalary" class="w-full border px-3 py-2 rounded" type="number">
+          <label class="block mb-1">Basic Salary:</label>
+          <input v-model.number="selectedEmployee.baseSalary" type="number" class="w-full border px-3 py-2 rounded" />
         </div>
 
         <div>
           <label class="block mb-1">Bonus:</label>
-          <input v-model.number="selectedEmployee.bonus" class="w-full border px-3 py-2 rounded" type="number">
+          <input v-model.number="selectedEmployee.bonus" type="number" class="w-full border px-3 py-2 rounded" />
         </div>
 
         <div>
           <label class="block mb-1">Deductions:</label>
-          <input v-model.number="selectedEmployee.deductions" class="w-full border px-3 py-2 rounded" type="number">
+          <input v-model.number="selectedEmployee.deductions" type="number" class="w-full border px-3 py-2 rounded" />
         </div>
 
-        <div>
+        <div class="sm:col-span-2">
           <label class="block mb-1">Note:</label>
-          <input v-model.number="selectedEmployee.note" class="w-full border px-3 py-2 rounded" type="number">
+          <textarea v-model="selectedEmployee.note" class="w-full border px-3 py-2 rounded"></textarea>
         </div>
 
-        <div>
-          <label class="block mb-1">Contruct:</label>
-          <input v-model.number="selectedEmployee.contract" class="w-full border px-3 py-2 rounded" type="number">
+        <div class="sm:col-span-2">
+          <label class="block mb-1">Contract:</label>
+          <input type="file" @change="handleContractUpload" class="w-full border px-3 py-2 rounded" />
         </div>
+      </div>
 
-        <div class="mt-4 flex justify-between">
-          <button @click="updateEmployee" class="bg-orange-400 hover:bg-orange-500 text-white px-4 py-2 rounded">
-            Update
-          </button>
-          <button @click="backToList" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
-            Back
-          </button>
-        </div>
+      <!-- Actions -->
+      <div class="mt-6 flex justify-between">
+        <button @click="updateEmployee" class="bg-orange-400 hover:bg-orange-500 text-white px-4 py-2 rounded">
+          Update
+        </button>
+        <button @click="backToList" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
+          Back
+        </button>
       </div>
     </div>
   </div>
 </template>
+
 
 <script setup>
 import { ref, onMounted } from 'vue'
