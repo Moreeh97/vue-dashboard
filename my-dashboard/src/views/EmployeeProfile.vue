@@ -1,29 +1,45 @@
 <template>
-  <div class="p-6 max-w-xl mx-auto">
-    <h2 class="text-2xl font-bold mb-4">Employee profile</h2>
+  <div class="p-6 max-w-2xl mx-auto">
+    <h2 class="text-2xl font-bold mb-6">Employee Profile</h2>
 
-    <div class="mb-4">
-      <label class="block mb-1 text-gray-700">Enter employee :</label>
-      <input v-model="searchName" type="text" placeholder="full name"
-        class="border border-gray-300 rounded px-3 py-2 w-full" />
-      <button @click="searchEmployee"
-        class="mt-2 bg-orange-400 hover:bg-orange-500 text-white px-4 py-2 rounded">show profile</button>
+    <!-- Search Section -->
+    <div class="mb-6">
+      <label class="block mb-2 font-medium text-gray-700">Enter employee:</label>
+      <div class="flex flex-col sm:flex-row gap-2">
+        <input 
+          v-model="searchName" 
+          type="text" 
+          placeholder="Full name"
+          class="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+        />
+        <button 
+          @click="searchEmployee"
+          class="bg-orange-400 hover:bg-orange-500 text-white px-4 py-2 rounded"
+        >
+          Show Profile
+        </button>
+      </div>
     </div>
 
-    <div v-if="employee" class="bg-white shadow rounded p-4 mt-4">
-      <h3 class="text-lg font-semibold mb-2">Employee Data:</h3>
-      <p><strong>Name:</strong> {{ employee.name }}</p>
-      <p><strong>Department:</strong> {{ employee.department }}</p>
-      <p><strong>Base salary :</strong> {{ employee.baseSalary }}</p>
-      <p><strong>Bonus:</strong> {{ employee.bonus }}</p>
-      <p><strong>Deductions:</strong> {{ employee.deductions }}</p>
+    <!-- Employee Data -->
+    <div v-if="employee" class="bg-white shadow rounded-lg p-6 space-y-2">
+      <h3 class="text-lg font-semibold mb-4">Employee Data</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-gray-700">
+        <p><strong>Name:</strong> {{ employee.name }}</p>
+        <p><strong>Department:</strong> {{ employee.department }}</p>
+        <p><strong>Base Salary:</strong> {{ employee.baseSalary }}</p>
+        <p><strong>Bonus:</strong> {{ employee.bonus }}</p>
+        <p><strong>Deductions:</strong> {{ employee.deductions }}</p>
+      </div>
     </div>
 
-    <div v-else-if="searched">
-      <p class="text-orange-400 mt-4">Not Founded.</p>
+    <!-- Not Found -->
+    <div v-else-if="searched" class="mt-4">
+      <p class="text-orange-500 font-medium">Employee Not Found.</p>
     </div>
   </div>
 </template>
+
 
 <script setup>
 import { ref } from 'vue'
